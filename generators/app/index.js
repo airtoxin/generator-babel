@@ -31,6 +31,11 @@ module.exports = yeoman.Base.extend({
   },
 
   install: function () {
-    this.installDependencies();
+    this.npminstall([
+      'babel-cli',
+      'babel-preset-es2015',
+      'mocha',
+      'babel-register'
+    ], {saveDev: true, saveExact: true});
   }
 });
