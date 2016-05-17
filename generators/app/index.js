@@ -11,10 +11,13 @@ module.exports = yeoman.Base.extend({
     ));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
+      type: 'input',
+      name: 'name',
+      message: 'Module name'
+    }, {
+      type: 'input',
+      name: 'description',
+      message: 'Module description'
     }];
 
     return this.prompt(prompts).then(function (props) {
@@ -24,14 +27,20 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+    this.fs.copyTpl(
+      this.templatePath(),
+      this.destinationPath(),
+      this.props
+    );
+    this.fs.copyTpl(
+      this.templatePath(".*"),
+      this.destinationPath(),
+      this.props
     );
   },
 
   install: function () {
-    this.npminstall([
+    this.npmInstall([
       'babel-cli',
       'babel-preset-es2015',
       'mocha',
