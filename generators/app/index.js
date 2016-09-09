@@ -33,7 +33,7 @@ module.exports = yeoman.Base.extend({
       this.props
     );
     this.fs.copyTpl(
-      this.templatePath(".*"),
+      this.templatePath('.*'),
       this.destinationPath(),
       this.props
     );
@@ -43,8 +43,22 @@ module.exports = yeoman.Base.extend({
     this.npmInstall([
       'babel-cli',
       'babel-preset-es2015',
+      'babel-preset-es2016',
+      'babel-preset-es2017',
+      'babel-preset-stage-3',
+      'babel-preset-stage-2',
       'mocha',
-      'babel-register'
+      'babel-register',
+      'babel-eslint',
+      'eslint',
+      'eslint-config-airbnb',
+      'eslint-plugin-babel',
+      'eslint-plugin-import',
+      'eslint-plugin-jsx-a11y',
+      'eslint-plugin-react'
     ], {saveDev: true, saveExact: true});
+    this.npmInstall([
+      'babel-polyfill'
+    ], {saveExact: true});
   }
 });
