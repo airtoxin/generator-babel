@@ -9,10 +9,4 @@ describe('generator-babel:app', function () {
       .withPrompts({someAnswer: true})
       .toPromise();
   });
-
-  it('creates files', function () {
-    assert.file([
-      'dummyfile.txt'
-    ]);
-  });
 });
