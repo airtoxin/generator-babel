@@ -1,6 +1,6 @@
 {
   "name": "@airtoxin/generator-babel",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "My yeoman generator of babeling node module",
   "homepage": "https://github.com/airtoxin/generator-babel",
   "author": {
